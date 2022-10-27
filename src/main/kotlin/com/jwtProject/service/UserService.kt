@@ -69,30 +69,3 @@ class UserService(
 }
 
 
-/*
-
-
-    public UserDto findUserInContext() {
-    final Authentication authentication = Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication()).orElseThrow(notFoundUser(HttpStatus.UNAUTHORIZED));
-    final UserDetails details = Optional.ofNullable((UserDetails) authentication.getPrincipal()).orElseThrow(notFoundUser(HttpStatus.UNAUTHORIZED));
-    return findUser(details.getUsername());
-}
-
-private static Supplier<GenericException> notFoundUser(HttpStatus unauthorized) {
-    return () -> GenericException.builder().httpStatus(unauthorized).errorMessage("user not found!").build();
-}
-
-public Boolean existsByUsername(String username){
-    return userRepository.existsByUsername(username);
-}
-
-
-
-fun loadUserByEmail(email: String): UserDetails{
-val user: User = userService.findUserByEmail(email)
-val roles = Stream.of(user.role).map { SimpleGrantedAuthority(it?.name ?: "NORMAL") }.toList()
-return   org.springframework.security.core.userdetails.User(user.email,user.password,roles)
-
-}
-
-*/
